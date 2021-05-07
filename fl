@@ -1,3 +1,33 @@
+def split_iid(dataset, n_centers):
+    """ Split PyTorch dataset randomly into n_phr """
+    n_obs_per_phr = [len(dataset) // n_phr for _ in range(n_phr)]
+    return random_split(dataset, n_obs_per_phr)
+    
+def federated_averaging(models, n_obs_per_client):
+    assert len(models) > 0, 'An empty list of models was passed.'
+    assert len(n_obs_per_client) == len(models), 'List with number of observations must have ' \
+                                                 'the same number of elements that list of models.'
+
+    # Compute proportions
+    n_obs = sum(n_obs_per_client)
+    proportions = [n_k / n_obs for n_k in n_obs_per_client]
+
+    # Empty model parameter dictionary
+    avg_params = models[0].state_dict()
+    for key, val in avg_params.items():
+        avg_params[key] = torch.zeros_like(val)
+
+    # Compute average
+    for model, proportion in zip(models, proportions):
+        for key in avg_params.keys():
+            avg_params[key] += proportion * model.state_dict()[key]
+
+    # Copy one of the models and load trained params
+    avg_model = copy.deepcopy(models[0])
+    avg_model.load_state_dict(avg_params)
+
+    return avg_model    
+
 def create_keras_model():
   return tf.keras.models.Sequential([
       tf.keras.layers.InputLayer(input_shape=(784,)),
