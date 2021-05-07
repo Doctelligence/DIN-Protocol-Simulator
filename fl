@@ -1,1 +1,31 @@
+def create_keras_model():
+  return tf.keras.models.Sequential([
+      tf.keras.layers.InputLayer(input_shape=(784,)),
+      tf.keras.layers.Dense(10, kernel_initializer='zeros'),
+      tf.keras.layers.Softmax(),
+  ])
+  
+  def model_fn():
+  keras_model = create_keras_model()
+  return tff.learning.from_keras_model(
+      keras_model,
+      input_spec=personal_health_record,
+      loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+      metrics=[tf.keras.metrics.SparseCategoricalAccuracy()])
+      
+iterative_process = tff.learning.build_federated_averaging_process(
+    model_fn,
+    client_optimizer_fn=lambda: tf.keras.optimizers.SGD(learning_rate=0.02),
+    server_optimizer_fn=lambda: tf.keras.optimizers.SGD(learning_rate=1.0))      
+    
+str(iterative_process.initialize.type_signature)
 
+state = iterative_process.initialize()
+
+state, metrics = iterative_process.next(state, federated_train_data)
+print('round  1, metrics={}'.format(metrics))
+
+NUM_ROUNDS = 11
+for round_num in range(2, NUM_ROUNDS):
+  state, metrics = iterative_process.next(state, federated_train_data)
+  print('round {:2d}, metrics={}'.format(round_num, metrics))
