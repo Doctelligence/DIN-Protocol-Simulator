@@ -1,3 +1,5 @@
+# COVID-19 CT Lung Scan 
+
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 config = tf.ConfigProto()
