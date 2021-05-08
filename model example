@@ -1,4 +1,4 @@
-# COVID-19 CT Lung Scan 
+#COVID-19 CT Lung Scan Segmentation 
 
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
