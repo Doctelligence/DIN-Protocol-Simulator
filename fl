@@ -1,4 +1,13 @@
+import collections
+import numpy as np
+np.random.seed(0)
+
 import tensorflow as tf
+import tensorflow.python.keras.optimizer_v2 import gradient descent
+
+from tensorflow_federated import python as tff
+from random import choices
+
 from keras.backend.tensorflow_backend import set_session
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3
@@ -36,20 +45,37 @@ from sklearn.metrics import auc
 import numpy, scipy.io
 
 #Personal Health Record data
+def make_federated_data(phr_data, phr_ids):
+    return(phr_data.create_tf_dataset_for_phr(x) for x in phr_ids)
 
-def split_iid(dataset, n_centers):
+sample_phr = 
+federated_train_data = make_federated_data()
+
+sample_phr = .tain.phr_ids[0:NUM_PHR]
+federated_train_data = make_federated_data(x_train,sample_phr)
+
+sample_clients_test = x_test.phr_ids[0:NUM_PHR]
+federated_test_data = make_federated_data(x_test,sample_phr)
+
+sample_batch = iter(federaated_train_data[0].next()
+sample_batch = collections.OrderedDict([
+    ('x', sample_batch['x'].numpy()),
+    ('y', sample_batch['y].numpy(),
+])
+
+def split_iid(dataset, n_phr):
     """ Split PyTorch dataset randomly into n_phr """
     n_obs_per_phr = [len(dataset) // n_phr for _ in range(n_phr)]
     return random_split(dataset, n_obs_per_phr)
     
-def federated_averaging(models, n_obs_per_client):
+def federated_averaging(models, n_obs_per_phr):
     assert len(models) > 0, 'An empty list of models was passed.'
     assert len(n_obs_per_client) == len(models), 'List with number of observations must have ' \
                                                  'the same number of elements that list of models.'
 
     # Compute proportions
-    n_obs = sum(n_obs_per_client)
-    proportions = [n_k / n_obs for n_k in n_obs_per_client]
+    n_obs = sum(n_obs_per_phr)
+    proportions = [n_k / n_obs for n_k in n_obs_per_phr]
 
     # Empty model parameter dictionary
     avg_params = models[0].state_dict()
