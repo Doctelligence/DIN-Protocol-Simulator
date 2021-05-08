@@ -1,4 +1,4 @@
-#Federated Learning Model - Test for PHR
+#Federated Learning Model 
 #COVID-19 CT Lung Scan 3D Segmentation 
 
 import tensorflow as tf
