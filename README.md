@@ -70,7 +70,7 @@ Use MPI to run
 ## Step 3
 Run `python ipfstrainer.py`
 
-## Setting up the Blockchain on a Computing Cluster
+## Setup Private Blockchain to work with Computing Cluster
 # Step 1
 * Install dependencies, geth, etc.
 * Your IT cluster controller may have to install these for you
