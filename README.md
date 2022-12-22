@@ -61,14 +61,14 @@ Use MPI to run
 
 ## Run IPFS Private Node
 # Step 1:
-* Setup private node: https://labs.eleks.com/2019/03/ipfs-network-data-replication.html 
+* Setup private ipfs node: https://labs.eleks.com/2019/03/ipfs-network-data-replication.html 
 * Run `ipfs daemon`
 
 # Step 2
 * Export config file as above in `## Run Distributed Version`
 
 ## Step 3
-Run `python ipfstrainer4.py`
+Run `python ipfstrainer.py`
 
 ## Setting up the Blockchain on a Computing Cluster
 # Step 1
@@ -83,15 +83,18 @@ module load geth/2022` on your computing cluster
 
 # Step 3
 Open two different windows for these commands.
+Window 1
 * `python regionNodeSetup.py 1 1`
 * `python regionNodeSetup.py 1 0`
+Window 2
+* `python regionNodeConnector.py 1`
 
 # Step 4 
 Load mpi:
 module purge
 module load Anaconda3/2020.11
 module load foss/2020a
-source activate $DATA/mpienv
+source activate $YOURLOCATION/mpienv
 
 # Step 5
 * run `python submitContract.py`
