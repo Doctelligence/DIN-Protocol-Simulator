@@ -1,0 +1,35 @@
+#this is the place where the raw chest xray data set is stored prior to partition
+raw_data_root_dir: "/home/lina3862/myspace/datasets/Chest_xray/train/"
+
+#put any string without spaces over here to uniquely identify your experiment
+#examples names: 1. num_patients and num_rounds, like -> "10_patients_5_rounds"
+#                2. data time of creation, like -> "17th_Oct_2021_17-56-09-UTC"
+#                3. unix timestamp of creation, like -> "1639531877"
+#could be anything as long as you can uniquely identify it
+experiment_id: "440_patients_10_rounds_1_batches_10_epochs"
+
+#the following are directory names
+directories:
+  root_dir: "/home/lina3862/myspace/datasets/Chest_xray/"
+
+  #the relevant directory names for this experiment is going to be "root_dir/experiment_id/"
+  #for eg. if experiment_id = 1639531877, and root_dir: "/tmp/federated_learning_dataset/"
+  #then based on the below names data_root_directory is "/tmp/federated_learning_dataset/1639531877/data_root_dir/"
+  #patient training data location name
+  data_root_dir: "data_root_dir"
+
+  #test data location name
+  test_dir: "test"
+
+  #validation data location name
+  val_dir: "val"
+
+  #model save directory name
+  model_save_dir: "outputs"
+
+parameters:
+  batch_size: 1
+  num_epochs: 10
+  max_rounds: 10
+  num_patients: 440
+
