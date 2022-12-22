@@ -1,5 +1,6 @@
-## Simulated FL PHR Environment (for Classification tasks)
+## Simulated FL PHR Environment
 
+* Classification tasks
 Download a healthcare dataset e.g.: https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 
 # Step 1:
