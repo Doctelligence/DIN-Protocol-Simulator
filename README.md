@@ -8,7 +8,7 @@ b)Create Simulated PHRs for Patients: In the script 'data-partition.py' set the 
 -Set the location for the for the patient directories to be saved.
 -The script will attempt to equally divide the number of negative and positive classes to each patient.
 
-c)Run 'python data-partition.py'
+c)Run `python data-partition.py`
 
 # Step 2:
 Go to 'train.py' script.
@@ -83,8 +83,8 @@ module load geth/2022` on your computing cluster
 
 # Step 3
 Open two different windows for these commands.
-* python regionNodeSetup.py 1 1
-* python regionNodeSetup.py 1 0
+* `python regionNodeSetup.py 1 1`
+* `python regionNodeSetup.py 1 0`
 
 # Step 4 
 Load mpi:
