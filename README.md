@@ -72,7 +72,8 @@ Run `python ipfstrainer.py`
 
 ## Setting up the Blockchain on a Computing Cluster
 # Step 1
-* Install dependencies
+* Install dependencies, geth, etc.
+* Your IT cluster controller may have to install these for you
 
 # Step 2
 Run `geth/go:
