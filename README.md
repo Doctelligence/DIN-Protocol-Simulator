@@ -1,89 +1,73 @@
-## Simulated FL PHR Environment
+## Simulated Federated Learning (FL) Environment Setup for Intelligence Protocol
 
-* Classification tasks
-Download a healthcare dataset e.g.: https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
+This guide provides a framework for setting up a Federated Learning (FL) environment utilizing data records from any domain, ensuring privacy and decentralization.
 
-# Step 1:
-a)Activate Virtual Python Learning Environment
-b)Create Simulated PHRs for Patients: In the script 'data-partition.py' set the 'no_patients' variable to the number of patients you'd like to use in your experiment.
--Set the location for the for the patient directories to be saved.
--The script will attempt to equally divide the number of negative and positive classes to each patient.
+### Initial Setup
 
-c)Run `python data-partition.py`
+- **Classification Tasks**: * For example, to start with a simple classification task, download an appropriate dataset, such as the chest x-ray pneumonia dataset from Kaggle: https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 
-# Step 2:
-Go to 'train.py' script.
-a)Import a TensorflowLite Model (e.g. a MobileNet version).
-- Search for different model-types at https://tfhub.dev/
--Specify variable 'module_selection' with model variables,e.g. name,input size, etc)
--Specify MODULE_HANDLE
+### Step 1: Environment Preparation
+a) Activate a Virtual Python Learning Environment.
+b) Create Simulated Data Records for Agents: In the script 'data-partition.py', set the 'no_agents' variable to the desired number of agents for your experiment.
+   - Specify the directory for saving agent directories.
+   - The script aims to evenly distribute negative and positive classes among agents.
+c) Execute with `python data-partition.py`.
 
-b)Set FL-Variables in the 'train.py' script:
-1.Batch_size =
-2.num_epochs =
-3.max_rounds =
-4.no_patients =
+### Step 2: Model Training Setup
+Navigate to the 'train.py' script.
+a) Import a TensorFlow Lite Model (e.g., MobileNet version).
+   - Find various model types at https://tfhub.dev/
+   - Define 'module_selection' with model attributes (e.g., name, input size) and specify MODULE_HANDLE.
+b) Set FL Variables in the 'train.py' script:
+   1. Batch_size =
+   2. num_epochs =
+   3. max_rounds =
+   4. no_agents =
 
-# Step 3:
-a)Create a 'Global_model' subdirectory in a specified location to save the global_models output
-- The Model will save in a sub-directory with the name of the FL-variables so that you can identify which model it was that was trained.
-b)Run 'python train.py' (advisable - advanced computing cluster)
+### Step 3: Training Execution
+a) Create a 'Global_model' subdirectory in the chosen location for saving the trained global models.
+   - Models will be saved in sub-directories named after the FL variables for easy identification.
+b) Run 'python train.py' (recommended: use an advanced computing cluster).
 
+## Distributed Version Execution
+### Step 1: Configuration Setup
+Execute `export FL_CONFIG_FILE=/path/to/config/file` with the config file specifying:
+   - `raw_data_root_dir`: Location of the dataset before partitioning.
+   - `experiment_id`: Unique identifier for your experiment (e.g., "10_agents_5_rounds").
+   - `directories`: Names and paths for data directories, including `root_dir`, `data_root_dir`, `test_dir`, `val_dir`, and `model_save_dir`.
 
-## Run Distributed Version
-# Step 1: 
-Run `export FL_CONFIG_FILE=/path/to/config/file`
-In config file the following parameters are specified
+### Step 2: Data Partitioning
+Run the data partitioner with `python data-partition.py`, referencing `FL_CONFIG_FILE`.
 
-* `raw_data_root_dir` : this is the place where the raw chest xray data set is stored prior to partition
+### Step 3: MPI Requirement
+Ensure `mpi4py` is installed, following [this guide](https://www.arc.ox.ac.uk/using-python-mpi-arc).
 
-* `experiment_id`: put any string without spaces over here to uniquely identify your experiment. could be anything as long as you can uniquely identify it
-examples names: 
-    1. num_patients and num_rounds, like "10_patients_5_rounds"
-    2. data time of creation, like "17th_Oct_2021_17-56-09-UTC"
-    3. unix timestamp of creation, like "1639531877"
-    
-* `directories`: the following are directory names. 
-  1. `root_dir`: the root directory where chestxray train, test and val folders are located
-  2. `data_root_dir`: patient training data location name. for eg. if experiment_id = 1639531877, and root_dir: "/tmp/federated_learning_dataset/", then based on the below names data_root_directory is "/tmp/federated_learning_dataset/1639531877/data_root_dir/"
-  3. `test_dir`: test data location name
-  4. `val_dir`: validation data location name
-  5. `model_save_dir`: model save directory name
+### Step 4: MPI Execution
+Use MPI for distributed training: `mpirun -n <no_agents> python DistributedTrainer.py`.
 
-# Step 2:
-Run data partitioner `python data-partition.py` that takes the config file from `export FL_CONFIG_FILE=/path/to/config/file`
+## IPFS Private Node Setup
+### Step 1: Node Configuration
+Set up a private IPFS node as outlined [here](https://labs.eleks.com/2019/03/ipfs-network-data-replication.html) and run `ipfs daemon`.
 
-# Step 3:
-Make sure mpi4py is installed. Refer to the following [link](https://www.arc.ox.ac.uk/using-python-mpi-arc)
+### Steps 2 & 3: Configuration and Execution
+Export the config file as in the Distributed Version section and execute `python ipfstrainer.py`.
 
-# Step 4:
-Use MPI to run
-`mpirun -n <no_patients> python DistributedTrainer.py`
+## Private Blockchain and Computing Cluster Integration
+### Step 1: Dependency Installation
+Install necessary dependencies, including Geth. IT support may be required for installations.
 
-## Run IPFS Private Node
-# Step 1:
-* Setup private ipfs node: https://labs.eleks.com/2019/03/ipfs-network-data-replication.html 
-* Run `ipfs daemon`
+### Step 2: Geth Initialization
+Configure Geth on your computing cluster, utilizing separate terminals for setup and connection.
 
-# Step 2
-* Export config file as above in `## Run Distributed Version`
-
-## Step 3
-Run `python ipfstrainer.py`
-
-## Setup Private Blockchain to work with Computing Cluster
-# Step 1
-* Install dependencies, geth, etc.
-* Your IT cluster controller may have to install these for you
-
-# Step 2
 Run `geth/go:
 srun -p interactive --pty /bin/bash
 module spider geth --> geth: geth/2022
 module load geth/2022` on your computing cluster
 * OR `module load geth` 
 
-# Step 3
+### Step 3: MPI Environment Setup
+Load necessary modules and activate the virtual environment for MPI.
+
 Open two different windows for these commands.
 Window 1
 * `python regionNodeSetup.py 1 1`
@@ -91,14 +75,12 @@ Window 1
 Window 2
 * `python regionNodeConnector.py 1`
 
-# Step 4 
-Load mpi:
 module purge
 module load Anaconda3/2020.11
 module load foss/2020a
 source activate $YOURLOCATION/mpienv
 
-# Step 5
+### Step 4: Smart Contract Deployment
+Proceed with deploying and executing smart contracts as part of your experimental setup.
 * run `python submitContract.py`
 * run `python smartContract_1.sol`
-
