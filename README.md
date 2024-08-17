@@ -1,4 +1,4 @@
-## Simulated Intelligence SC for Advanced Computing Clusters Experimentation
+## Simulated Intelligence Protocol for Computing Clusters
 
 This guide provides a framework for setting up a Federated Learning (FL) environment utilizing data records from any domain, ensuring privacy and decentralization.
 
