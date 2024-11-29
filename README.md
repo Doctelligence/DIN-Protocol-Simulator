@@ -1,10 +1,10 @@
-## Intelligence Protocol (Simulation)
+## Intelligence Protocol Simulator
 
-- **Objective**: Develop a simulated intelligence protocol for Federated Learning (FL) on distributed personal health records.
-- **Focus**: Construct a simulated environment for training machine learning algorithms across decentralized health data sources.
-- **Testing**: Intended for advanced research computing environments.
-- **Key Principles**: Privacy, decentralization, and scalable health data integration.
-- **Goal**: Validate and refine the protocol’s effectiveness for managing and utilizing health data efficiently in real-world scenarios.
+- **Purpose**: Enable users to test an intelligence protocol for Federated Learning (FL) on distributed personal health records.
+- **Features**: Offers a simulated environment for training machine learning algorithms on decentralized health data sources.
+- **Testing Environment**: Designed for deployment in advanced research computing facilities.
+- **Guiding Principles**: Ensures privacy, decentralization, and scalable health data integration throughout.
+- **Intended Outcome**: Provides users with a platform to validate and refine the protocol’s efficiency in real-world health data scenarios.
 
 ### Initial Setup
 
