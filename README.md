@@ -1,6 +1,6 @@
 ## Intelligence Protocol Simulator
 
-- **Purpose**: Enable users to test an intelligence protocol for Federated Learning (FL) on distributed personal health records.
+- **Purpose**: Enable users to test an DIN protocol for Federated Learning (FL) on distributed personal health records.
 - **Features**: Offers a simulated environment for training machine learning algorithms on decentralized health data sources.
 - **Testing Environment**: Designed for deployment in advanced research computing facilities.
 - **Guiding Principles**: Ensures privacy, decentralization, and scalable health data integration throughout.
