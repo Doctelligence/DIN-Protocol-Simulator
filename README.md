@@ -1,4 +1,4 @@
-## Intelligence Protocol Simulator
+## DIN Protocol Simulator
 
 - **Purpose**: Enable users to test an DIN protocol for Federated Learning (FL) on distributed personal health records.
 - **Features**: Offers a simulated environment for training machine learning algorithms on decentralized health data sources.
