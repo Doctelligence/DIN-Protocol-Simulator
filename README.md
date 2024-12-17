@@ -1,7 +1,5 @@
 ## DIN Protocol Simulator
 
-### DIN-Protocol Simulator Overview
-
 The **DIN-Protocol Simulator** begins with **smart contracts** running on a **test environment** powered by a **traditional Ethereum network** (Solidity). These smart contracts automate the coordination of the training process, track contributions, and distribute rewards to participants. This decentralized framework ensures privacy, security, and fairness in the training of AI models.
 
 The system interacts with **IPFS** (InterPlanetary File System) for decentralized model storage, ensuring that AI models are securely stored and shared across participants while maintaining data integrity. This interaction allows the models to remain decentralized, ensuring that participants retain control of their data and contribute to the collective training process.
