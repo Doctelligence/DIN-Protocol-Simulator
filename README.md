@@ -1,10 +1,25 @@
 ## DIN Protocol Simulator
 
-- **Purpose**: Enable users to test an DIN protocol for Federated Learning (FL) on distributed personal health records.
-- **Features**: Offers a simulated environment for training machine learning algorithms on decentralized health data sources.
-- **Testing Environment**: Designed for deployment in advanced research computing facilities.
-- **Guiding Principles**: Ensures privacy, decentralization, and scalable health data integration throughout.
-- **Intended Outcome**: Provides users with a platform to validate and refine the protocol’s efficiency in real-world health data scenarios.
+### DIN-Protocol Simulator Overview
+
+The **DIN-Protocol Simulator** begins with **smart contracts** running on a **test environment** powered by a **traditional Ethereum network** (Solidity). These smart contracts automate the coordination of the training process, track contributions, and distribute rewards to participants. The entire process is designed to ensure a decentralized and privacy-preserving approach to AI model training.
+
+The system interacts with **IPFS** (InterPlanetary File System) for decentralized model storage, ensuring that the AI models are securely stored and shared across participants while maintaining data integrity. This decentralized architecture enables a scalable solution for federated learning, where participants can download the model, train it locally on their own data, and then upload the updated model for further aggregation.
+
+Designed for **advanced computing clusters**, the simulator provides a **test environment** that allows researchers to experiment with and validate decentralized AI processes in a **reproducible, scalable** way. This environment supports experimentation in **traditional research settings**, offering a flexible and high-performance platform for exploring federated learning with decentralized health data.
+
+The simulator uses **healthcare data** as a demonstration use case, where personal health records remain under the control of individuals while still contributing to the collective training of an AI model. The simulator has demonstrated successful training of AI models to a high **AUC (Area Under the Curve)**, validating the effectiveness of federated learning in privacy-preserving contexts.
+
+**Key Highlights:**
+- **Smart contracts** coordinate the training process, track contributions, and distribute rewards through a **test environment** using a **traditional Ethereum network**.
+- Interacts with **IPFS** for decentralized model storage, ensuring privacy, security, and data integrity.
+- Provides a **test environment** for experimentation in **advanced computing clusters**, supporting reproducibility and scalability.
+- Uses **healthcare data** as a use case to demonstrate **Federated Learning (FL)** with privacy-preserving, decentralized model training.
+- Trained AI models to a high **AUC**, demonstrating the potential for decentralized AI in real-world applications.
+
+**Try it yourself!** Explore the **DIN-Protocol Simulator** and see how decentralized AI, smart contracts, and data ownership can be applied to real-world, privacy-preserving scenarios.
+
+------------------------------------------
 
 ### Initial Setup
 
