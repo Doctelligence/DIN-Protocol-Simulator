@@ -2,22 +2,25 @@
 
 ### DIN-Protocol Simulator Overview
 
-The **DIN-Protocol Simulator** begins with **smart contracts** running on a **test environment** powered by a **traditional Ethereum network** (Solidity). These smart contracts automate the coordination of the training process, track contributions, and distribute rewards to participants. The entire process is designed to ensure a decentralized and privacy-preserving approach to AI model training.
+The **DIN-Protocol Simulator** begins with **smart contracts** running on a **test environment** powered by a **traditional Ethereum network** (Solidity). These smart contracts automate the coordination of the training process, track contributions, and distribute rewards to participants. This decentralized framework ensures privacy, security, and fairness in the training of AI models.
 
-The system interacts with **IPFS** (InterPlanetary File System) for decentralized model storage, ensuring that the AI models are securely stored and shared across participants while maintaining data integrity. This decentralized architecture enables a scalable solution for federated learning, where participants can download the model, train it locally on their own data, and then upload the updated model for further aggregation.
+The system interacts with **IPFS** (InterPlanetary File System) for decentralized model storage, ensuring that AI models are securely stored and shared across participants while maintaining data integrity. This interaction allows the models to remain decentralized, ensuring that participants retain control of their data and contribute to the collective training process.
 
-Designed for **advanced computing clusters**, the simulator provides a **test environment** that allows researchers to experiment with and validate decentralized AI processes in a **reproducible, scalable** way. This environment supports experimentation in **traditional research settings**, offering a flexible and high-performance platform for exploring federated learning with decentralized health data.
+Designed for **advanced computing clusters**, the simulator provides a **test environment** that enables experimentation in a **reproducible, scalable** way. Researchers can use this environment to experiment with federated learning and explore the potential of decentralized AI in traditional research settings.
 
-The simulator uses **healthcare data** as a demonstration use case, where personal health records remain under the control of individuals while still contributing to the collective training of an AI model. The simulator has demonstrated successful training of AI models to a high **AUC (Area Under the Curve)**, validating the effectiveness of federated learning in privacy-preserving contexts.
+This simulator lays the foundational groundwork for our **[live demo prototype](https://github.com/Doctelligence/DIN-Prototype)**, where we demonstrate the system's ability to evaluate model contributions and issue rewards based on those contributions in a **fully decentralized manner**. In the prototype, smart contracts handle the distribution of rewards, providing participants with incentives for their contributions in a transparent, automated way, based on the value they bring to the training process.
+
+The simulator uses **healthcare data** as a demonstration use case, showing how personal health records can remain under individual control while still contributing to the collective training of an AI model. Successful training of AI models to a high **AUC (Area Under the Curve)** in this environment demonstrates the potential of federated learning for decentralized, privacy-preserving applications.
 
 **Key Highlights:**
-- **Smart contracts** coordinate the training process, track contributions, and distribute rewards through a **test environment** using a **traditional Ethereum network**.
+- **Smart contracts** coordinate the training process, track contributions, and distribute rewards in a **test environment** using a **traditional Ethereum network**.
 - Interacts with **IPFS** for decentralized model storage, ensuring privacy, security, and data integrity.
 - Provides a **test environment** for experimentation in **advanced computing clusters**, supporting reproducibility and scalability.
-- Uses **healthcare data** as a use case to demonstrate **Federated Learning (FL)** with privacy-preserving, decentralized model training.
-- Trained AI models to a high **AUC**, demonstrating the potential for decentralized AI in real-world applications.
+- Lays the groundwork for the **[live demo prototype](https://github.com/Doctelligence/DIN-Prototype)**, which demonstrates the ability to evaluate model contributions and issue rewards in a **fully decentralized** way.
+- Uses **healthcare data** as a use case to demonstrate **Federated Learning (FL)** in a privacy-preserving, decentralized setting.
+- Successfully trained AI models to a high **AUC**, validating the effectiveness of decentralized AI in real-world applications.
 
-**Try it yourself!** Explore the **DIN-Protocol Simulator** and see how decentralized AI, smart contracts, and data ownership can be applied to real-world, privacy-preserving scenarios.
+**Try it yourself!** Explore the **DIN-Protocol Simulator** and see how decentralized AI, smart contracts, and data ownership can be applied to real-world, privacy-preserving scenarios, setting the stage for a fully decentralized reward distribution system in our **[live demo prototype](https://github.com/Doctelligence/DIN-Prototype)**.
 
 ------------------------------------------
 
